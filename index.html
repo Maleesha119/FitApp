@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitSphere</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            background: url('I:/FitSphere App/pexels-scottwebb-28054.jpg') no-repeat center center/cover;
+            position: relative;
+            height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-left a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-box {
+            background: rgba(217, 217, 217, 0.88);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .site-name {
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            gap: 10px;
+        }
+
+        .menu img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80%;
+            padding-left: 50px;
+            border-radius: 20px;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .content p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .content img.welcome-image {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(5, 5, 5, 5);
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        .signup-btn {
+            background: #ffd700;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 15px;
+            align-self: flex-start;
+        }
+
+        .download {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            text-align: center;
+            background: rgba(217, 217, 217, 0.88);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .download p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        .download img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        #our-services {
+            background-color: #181818;
+            padding: 50px;
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        #our-services h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        #our-services p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .service {
+            background-color: #1C2127;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+            flex: 1 1 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .service img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .service p {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        #unleash-potential {
+            background-color: #181818;
+            color: white;
+            padding: 60px;
+            margin-top: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        #unleash-potential .text-section {
+            flex: 1;
+        }
+
+        #unleash-potential .text-section h2 {
+            font-size: 36px;
+            color: #ffd700;
+            margin-bottom: 50px;
+        }
+
+        #unleash-potential .text-section p {
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        #unleash-potential .text-section .cta-btn {
+        background-color: #ffd700;
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        display: inline-block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+        transform: scale(1.1); 
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+        background-color: #ffc107;         
+}
+
+        #unleash-potential img {
+            flex: 1;
+            max-width: 30%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .stats {
+        background-color: #1C2127;
+        padding: 6px;
+        border-radius: 15px;
+        text-align: center;
+        flex: 1;
+        color: #ffd700;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stats:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .stats h3 {
+        font-size: 25px; 
+        color: white; 
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .stats h1 {
+        font-size: 36px; 
+        font-weight: bold;
+        transition: font-size 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .stats:hover h1 {
+        font-size: 40px; 
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; 
+    }    
+
+#bmi-section {
+    background: url('I:/FitSphere App/bmi i.png') no-repeat center center/cover;
+    background-color: #1C2127; 
+    padding: 150px;
+    margin-top: 0px;
+    border-radius: 0px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    position: relative;
+        }
+
+        #bmi-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        #bmi-section form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 50px;
+        }
+
+        #bmi-section input, #bmi-section select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        #bmi-section button {
+            background: #ff6200;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #bmi-section button:hover {
+            background-color: #ff8000;
+            transform: scale(1.05);
+        }
+
+        #bmi-result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        #bmi-result span {
+            color: white;
+        }
+
+
+#membership-plans {
+            background: url('I:/FitSphere App/pack.jpg') no-repeat center center/cover;
+            padding: 100px 50px;
+            color: white;
+            text-align: center;
+        }
+
+
+        #membership-plans h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .plan-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .plan .tag {
+            background: orange;
+            color: black;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .plan h3 {
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .plan ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .plan ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .plan ul li:before {
+            content: '\2713';
+            color: orange;
+            margin-right: 10px;
+        }
+
+        .plan button {
+            background: orange;
+            color: black;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .plan button:hover {
+            background: #ffd700;
+            transform: scale(1.1);
+        }
+
+#coaches-section {
+            background-color: #181818;
+            padding: 100px 50px;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+
+
+        #coaches-section .text-container {
+            padding: 20px;
+        }
+
+        #coaches-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .coaches-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .coach {
+            position: relative;
+            text-align: center;
+            background-color: #1C2127;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .coach:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .coach img {
+            width: 100%;
+            border-radius: 10px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .coach-details {
+            margin-top: 10px;
+        }
+
+        .coach-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .coach-rating {
+            color: #ffd700;
+        }
+
+        .star {
+            font-size: 16px;
+        }
+
+
+#testimonials-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .testimonial-box {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1100px;
+            width: 100%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .testimonial-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .testimonial-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffd700;
+        }
+
+        .testimonial-content {
+            flex: 3;
+            color: #fff;
+            text-align: left;
+        }
+
+        .testimonial-content p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .testimonial-content .client-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-content .client-location {
+            font-size: 16px;
+            color: #ffd700;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .testimonial {
+            display: none;
+        }
+
+        .testimonial.active {
+            display: flex;
+        }
+
+        .quote {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+
+#final-section {
+            background-color: #181818;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .final-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        .final-column {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .final-column.logo-column {
+            border-right: 1px solid #444;
+        }
+
+        .final-column.contact-column {
+            border-right: 1px solid #444;
+        }
+
+        .final-column img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .final-column h2 {
+            font-size: 24px;
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        .final-column p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .final-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .final-column ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icons a img {
+            width: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a img:hover {
+            transform: scale(1.2);
+        }
+
+        .final-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .final-bottom a {
+            color: orange;
+            text-decoration: none;
+        }
+
+
+
+    </style>
+    <script>
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('.testimonial');
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        function autoplayTestimonials() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        setInterval(autoplayTestimonials, 3000);
+
+        window.onload = () => showTestimonial(currentTestimonial);
+    </script>
+
+
+    </style>
+    <script>
+        function calculateBMI() {
+    const height = parseFloat(document.getElementById('height').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const age = document.getElementById('age').value;
+    const gender = document.getElementById('gender').value;
+
+    // Validation
+    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+        document.getElementById('bmi-result').innerHTML = `<span style="color: red;">Please enter valid height and weight values.</span>`;
+        return;
+    }
+
+    if (!age || !gender) {
+        document.getElementById('bmi-result').innerHTML = `<span style="color: red;">Please fill in all fields.</span>`;
+        return;
+    }
+
+    // Convert height to meters and calculate BMI
+    const heightInMeters = height / 100;
+    const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+    // Determine BMI category
+    let category = '';
+    if (bmi < 18.5) {
+        category = 'Underweight';
+    } else if (bmi < 24.9) {
+        category = 'Normal weight';
+    } else if (bmi < 29.9) {
+        category = 'Overweight';
+    } else {
+        category = 'Obese';
+    }
+
+    // Display result
+    document.getElementById('bmi-result').innerHTML = `Your BMI is <span>${bmi}</span> (${category}). Age: ${age}, Gender: ${gender}.`;
+}
+
+    </script>
+</head>
+<body>        
+    <header>
+        
+
+<div class="nav-left nav-box">
+            <a href="#">About</a>
+            <a href="#">Membership</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="site-name">FITSPHERE</div>
+        <div class="menu">
+            <span>Menu</span>
+            <img src="I:/FitSphere App/list.png" alt="Menu Icon">
+        </div>
+    </header>
+    <div class="content">
+        <h1>Welcome to FitSphere</h1>
+        <p>Your Comprehensive Fitness Companion</p>
+        <a href="#signup" class="signup-btn">Sign Up</a>
+    </div>
+    <div class="download nav-box">
+        <p>Ready to get started?<br>Download Our App Today!</p>
+        <img src="I:/FitSphere App/app-store.png" alt="App Store">
+        <img src="I:/FitSphere App/play.png" alt="Play Store">
+    </div>
+    
+
+<div id="our-services">
+        <h2>Our Services</h2>
+        <p>FitSphere is your all-in-one fitness solution, offering cutting-edge tools, personalized plans, and a supportive community. Whether you're starting out or aiming higher, we help you achieve your goals with confidence and ease</p>
+        <div class="service-container">
+            <div class="service">
+                <img src="I:/FitSphere App/planning.png" alt="Personalized Plans">
+                <h3>Personalized Plans</h3>
+                <p>Custom fitness routines for your unique goals</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/breakfast (1).png" alt="Meal Guidance">
+                <h3>Meal Guidance</h3>
+                <p>Nutrition advice tailored to your needs</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/progress.png" alt="Progress Tracking">
+                <h3>Progress Tracking</h3>
+                <p>Monitor your fitness journey with ease</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/coach.png" alt="Coaching">
+                <h3>Coaching</h3>
+                <p>Expert-led guidance to keep you on track</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/mind.png" alt="Mental Wellness">
+                <h3>Mental Wellness</h3>
+                <p>Enhance your mindset for a healthier you</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/vitamins.png" alt="Supplements & Equipment">
+                <h3>Supplements & Equipment</h3>
+                <p>Quality tools to support your progress</p>
+            </div>
+            <div class="service">
+                <img src="I:/FitSphere App/injury.png" alt="Physiotherapy Services">
+                <h3>Physiotherapy Services</h3>
+                <p>Professional care for recovery and mobility</p>
+            </div>
+        </div>
+    </div>
+    
+
+<div id="unleash-potential">
+        <div class="text-section">
+            <h2>UNLEASH YOUR FULL FITNESS POTENTIAL</h2>
+            <p>We believe fitness should adapt to you, not the other way around. That's why we've designed a seamless, personalized experience to make your journey simple and stress-free. Join us today with no commitments, just the freedom to pursue your goals at your pace. Enjoy 24/7 unlimited access and customized plans tailored to your lifestyle.</p>
+            <a href="#" class="cta-btn">Start Your Transformation Today +</a>
+            <div class="stats-container">
+                <div class="stats">
+                    <h3>Trainers</h3>
+                    <h1>100+</h1>
+                </div>
+                <div class="stats">
+                    <h3>Users</h3>
+                    <h1>100k+</h1>
+                </div>
+            </div>
+        </div>
+        <img src="I:/FitSphere App/pexels-foadshariyati-30165877.jpg" alt="Fitness Potential">
+    </div>
+
+    
+
+<div id="bmi-section">
+        <h2>Calculate Your BMI Now!!</h2>
+        <form onsubmit="event.preventDefault(); calculateBMI();">
+            <input type="text" id="height" placeholder="Height (cm)" required>
+            <input type="text" id="weight" placeholder="Weight (kg)" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <select id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <button type="submit">Calculate BMI</button>
+        </form>
+        <div id="bmi-result"></div>
+    </div>
+
+    
+
+<div id="membership-plans">
+    <h2>CHOOSE YOUR FITSPHERE PLAN</h2>
+    <div class="plan-container">
+        <div class="plan" style="position: relative;">
+            <!-- MOST POPULAR Tag -->
+            <div class="tag" style="
+                background: #ffa500; /* Matches the 'Get Membership' button color */
+        color: white; 
+        padding: 5px 10px; 
+        position: absolute; 
+        top: -20px; 
+        left: 10px; 
+        border-radius: 5px; 
+        font-weight: bold; 
+        font-size: 12px;">
+         MOST POPULAR
+            </div>
+            <h3>$20/month</h3>
+            <ul>
+                <li>Personalized fitness plan</li>
+                <li>Access to guided workout videos</li>
+                <li>Meal guidance & nutrition tips</li>
+                <li>Weekly progress tracking</li>
+                <li>Community support group</li>
+            </ul>
+            <button>Get Membership</button>
+        </div>
+        <div class="plan">
+            <h3>$35.99/month</h3>
+            <ul>
+                <li>Everything in the Basic Plan</li>
+                <li>1-on-1 virtual coaching session</li>
+                <li>Advanced meal planning & diet tracking</li>
+                <li>Exclusive mental wellness workshops</li>
+                <li>Integration with fitness tracking apps</li>
+            </ul>
+            <button>Get Membership</button>
+        </div>
+        <div class="plan">
+            <h3>$45.99/month</h3>
+            <ul>
+                <li>Everything in the Pro Plan</li>
+                <li>Weekly personalized coaching & feedback</li>
+                <li>Live interactive workout sessions</li>
+                <li>Direct access to expert trainers</li>
+                <li>Exclusive discounts on supplements & equipment</li>
+            </ul>
+            <button>Get Membership</button>
+        </div>
+    </div>
+</div>
+
+<div id="coaches-section">
+    <div class="text-container">
+        <h2>MEET OUR EXPERT FITNESS TRAINERS</h2>
+    </div>
+    <div class="coaches-container">
+        <div class="coach">
+            <img src="I:/FitSphere App/c1.jpg" alt="Coach 1">
+            <div class="coach-details">
+                <div class="coach-name">Maleesha</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+            </div>
+        </div>
+        <div class="coach">
+            <img src="I:/FitSphere App/c2.jpg" alt="Coach 2">
+            <div class="coach-details">
+                <div class="coach-name">Raveesha</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+            </div>
+        </div>
+        <div class="coach">
+            <img src="I:/FitSphere App/c3.jpg" alt="Coach 3">
+            <div class="coach-details">
+                <div class="coach-name">Pramila</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+            </div>
+        </div>
+        <div class="coach">
+            <img src="I:/FitSphere App/l2.jpg" alt="Coach 4">
+            <div class="coach-details">
+                <div class="coach-name">Mihika</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+            </div>
+        </div>
+        <div class="coach">
+            <img src="I:/FitSphere App/l3.jpg" alt="Coach 5">
+            <div class="coach-details">
+                <div class="coach-name">Upeksha</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+            </div>
+        </div>
+        <div class="coach">
+            <img src="I:/FitSphere App/l5.jpg" alt="Coach 6">
+            <div class="coach-details">
+                <div class="coach-name">Nipuni</div>
+                <div class="coach-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Testimonials Section -->
+
+    <!-- Testimonials Section -->
+    <div id="testimonials-section" style="background: url('I:/FitSphere App/bmi i.png') no-repeat center center/cover;">
+        <div class="testimonial-box">
+            <div class="testimonial active">
+                <div class="testimonial-image">
+                    <img src="I:/FitSphere App/cl1.jpg" alt="Client 1">
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"FitSphere has been a game-changer for my fitness journey. The personalized workout plans fit perfectly into my busy schedule, and I love the meal plan recommendations that keep me on track."</p>
+                    <div class="client-name">Pramila Chamuditha</div>
+                    <div class="client-location">Kandy</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="I:/FitSphere App/cll2.jpg" alt="Client 2">
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"As a mother juggling work and family, I never thought I'd have time for fitness. FitSphere’s guided meditation sessions and flexible workouts have made all the difference for my health and mental peace."</p>
+                    <div class="client-name">Nethmi Amanda</div>
+                    <div class="client-location">Rathnapura</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="I:/FitSphere App/cl3.jpg" alt="Client 3">
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"I was always hesitant about investing in gym memberships. FitSphere gives me affordable access to everything I need—workouts, nutrition advice, and even physiotherapy tips right on my phone."</p>
+                    <div class="client-name">Heshani Peris</div>
+                    <div class="client-location">Badulla</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-image">
+                    <img src="I:/FitSphere App/cl 4.jpg" alt="Client 4">
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"The personal coaching option is my favorite feature. Having a coach monitor my progress and give feedback keeps me motivated and accountable. Highly recommend it for busy professionals!"</p>
+                    <div class="client-name">Maleeesha Viraj</div>
+                    <div class="client-location">Padukka</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+<!-- Final Section Updated -->
+<div id="final-section" style="background-color: #181818; color: white; padding: 50px 20px;">
+    <div class="final-container" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+
+        <!-- Logo Column -->
+        <div class="final-column logo-column" style="flex: 1; text-align: center; padding: 20px;">
+            <img src="I:/FitSphere App/logo.jpg" alt="FitSphere Logo" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px;">
+            <h2 style="font-size: 24px; color: orange;">ACHIEVE WELLBEING</h2>
+            <p style="font-size: 18px; color: #ffd700;">CORE STRENGTH</p>
+        </div>
+
+        <!-- Contact Column -->
+        <div class="final-column contact-column" style="flex: 2; text-align: center; padding: 20px;">
+            <p style="font-size: 16px; color: white; margin-bottom: 15px;">Welcome to FitSphere! We are here to support and guide you.</p>
+            <p style="font-size: 18px; color: orange; margin-bottom: 5px; font-weight: bold;">CALL US ANYTIME</p>
+            <p style="font-size: 16px; color: white; margin-bottom: 15px;">+94 70 151 4261</p>
+            <p style="font-size: 18px; color: orange; margin-bottom: 5px; font-weight: bold;">VISIT OUR LOCATION</p>
+            <p style="font-size: 16px; color: white;">SLTC RESEARCH UNIVERSITY PADUKKA</p>
+        </div>
+
+        <!-- Services Column -->
+        <div class="final-column services-column" style="flex: 1; text-align: center; padding: 20px;">
+            <h4 style="font-size: 18px; color: orange; margin-bottom: 15px;">OUR SERVICES</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Personalized Plans</li>
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Meal Guidance</li>
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Progress Tracking</li>
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Coaching</li>
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Mental Wellness</li>
+                <li style="font-size: 16px; color: white; margin-bottom: 5px;">Physiotherapy Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Line inserted above footer -->
+    <div style="width: 100%; height: 1px; background-color: #444; margin: 20px 0;"></div>
+
+    <!-- Footer Section -->
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-size: 14px; color: #ccc;">
+            &copy; 2023 FitSphere. All rights reserved. <a href="#" style="color: orange; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: orange; text-decoration: none;">Terms & Conditions</a>
+        </p>
+        <div class="social-icons" style="display: flex; gap: 20px;">
+            <a href="#"><img src="I:/FitSphere App/facebook.png" alt="Facebook" style="width: 30px;"></a>
+            <a href="#"><img src="I:/FitSphere App/instagram.png" alt="Instagram" style="width: 30px;"></a>
+            <a href="#"><img src="I:/FitSphere App/youtube.png" alt="YouTube" style="width: 30px;"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
